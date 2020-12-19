@@ -1,0 +1,11 @@
+spring.profiles.include:
+  - include1-from-development
+  - include2-from-development
+  - test-include
+spring.datasource.sql-script-encoding: UTF-8
+hibernate.hbm2ddl.auto: validate
+spring.jpa:
+  show-sql: TRUE
+  hibernate.ddl-auto: validate
+common.key: this_is_common
+spring.flyway.enabled: false
