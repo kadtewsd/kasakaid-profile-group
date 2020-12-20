@@ -1,7 +1,11 @@
-spring.profiles.include:
-  - include1-from-development
-  - include2-from-development
-  - test-include
+spring.profiles.group:
+  test:
+    - test
+    - test-include
+  development:
+    - development
+    - include1-from-development
+    - include2-from-development
 spring.datasource.sql-script-encoding: UTF-8
 hibernate.hbm2ddl.auto: validate
 spring.jpa:
