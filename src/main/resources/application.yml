@@ -1,7 +1,3 @@
-spring.profiles.include:
-  - development-include1
-  - development-include2
-  - test-include
 spring.datasource.sql-script-encoding: UTF-8
 hibernate.hbm2ddl.auto: validate
 spring.jpa:
@@ -9,3 +5,18 @@ spring.jpa:
   hibernate.ddl-auto: validate
 common.key: this_is_common
 spring.flyway.enabled: false
+---
+spring:
+  config:
+    activate:
+      on-profile: development
+    import:
+      - optional:application-development-include1.yml # development で動かした時は問題ないが、test のプロファイルで動かすと見つからないというエラーになるので、optional にする。
+      - optional:application-development-include2.yml
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+    import:
+      - optional:application-test-include.yml # test は、production のビルドに入らないので、optional にしないといけない
